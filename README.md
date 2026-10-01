@@ -58,34 +58,34 @@ The aim is to monitor the availability, performance and security alerts of machi
 
 ### 1️⃣ Installing the Zabbix server
 
-# Update the system
+## Update the system
 sudo apt update && sudo apt upgrade -y
 
-# Install dependencies
+## Install dependencies
 sudo apt install -y apache2 mysql-server php php-mysql php-gd php-bcmath php-net-socket php-gettext
 
-# Add the Zabbix repository
+## Add the Zabbix repository
 wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_7.0-1+ubuntu24.04_all.deb
 sudo dpkg -i zabbix-release_7.0-1+ubuntu24.04_all.deb
 sudo apt update
 
-# Install Zabbix Server, Frontend and Agent
+## Install Zabbix Server, Frontend and Agent
 sudo apt install -y zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-agent
 
-# Create the database
+## Create the database
 sudo mysql -e ‘CREATE DATABASE zabbix CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;’
 sudo mysql -e ‘CREATE USER “zabbix”@'localhost' IDENTIFIED BY “password”;’
 sudo mysql -e ‘GRANT ALL PRIVILEGES ON zabbix.* TO “zabbix”@'localhost';’
 sudo mysql -e ‘SET GLOBAL log_bin_trust_function_creators = 1;’
 
-# Import the initial schema
+## Import the initial schema
 zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -uzabbix -p zabbix
 
-# Configure the Zabbix Server
+## Configure the Zabbix Server
 sudo nano /etc/zabbix/zabbix_server.conf
-# Change: DBPassword=password
+## Change: DBPassword=password
 
-# Start the services
+## Start the services
 sudo systemctl restart zabbix-server zabbix-agent apache2
 sudo systemctl enable zabbix-server zabbix-agent apache2
 
@@ -93,10 +93,10 @@ sudo systemctl enable zabbix-server zabbix-agent apache2
 
 ### 2️⃣ Accessing the web interface
 
-# Open a web browser and go to:
+## Open a web browser and go to:
 http://yourIPaddress/zabbix
 
-# Default credentials:
+## Default credentials:
 - Username: Admin
 - Password: zabbix
 
@@ -124,7 +124,7 @@ sudo systemctl enable zabbix-agent
 
 ### 📊 Monitoring and alerts
 
-# Configured dashboards
+## Configured dashboards
 - Global View: Overview of all hosts
 - Problems: List of active issues by severity
 - Host Availability: Host availability
@@ -146,7 +146,7 @@ https://screenshots/host_config.png
 ---------
 
 ### 📚 Documentation
-# The full documentation is available in the folder docs/ :
+## The full documentation is available in the folder docs/ :
 01 - Introduction
 02 - Architecture
 03 - Installation
