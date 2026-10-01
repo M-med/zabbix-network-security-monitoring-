@@ -1,2 +1,94 @@
-# zabbix-network-security-monitoring-
+# 🛡️ Zabbix Network Security Monitoring
+
+![Zabbix](https://img.shields.io/badge/Zabbix-7.0-red)
+![Ubuntu](https://img.shields.io/badge/Ubuntu-24.04-orange)
+![Windows](https://img.shields.io/badge/Windows-10-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+-------- 
+
+## 📖 Description
+
+This project outlines the implementation of a **network security monitoring and supervision** solution based on **Zabbix 7**, deployed on **Ubuntu Server 24.04** with agents running on **Windows 10** and **Linux**.
+
 The aim is to monitor the availability, performance and security alerts of machines on a network in real time, in order to proactively detect incidents and ensure the resilience of the infrastructure.
+
+---------
+
+## 🎯 Project objectives
+
+- Deploy a Zabbix server on Ubuntu Server 24.04
+- Configure the Zabbix web interface
+- Install and configure Zabbix agents (Windows & Linux)
+- Monitor availability and security alerts
+- Set up dashboards and custom alerts
+- Document the entire installation and configuration process
+
+----------
+
+## 🛠️ Technologies used
+
+
+-  **Ubuntu Server** 24.04 LTS : Server operating system 
+-  **Zabbix** 7.0 : Monitoring platform 
+-  **Apache** 2.4.58 : Web server for the Zabbix interface 
+-  **MySQL** 8.0.45 : Zabbix database 
+-  **PHP** 8.x : Language for the web interface 
+-  **Windows 10** : Monitored client 
+-  **Ubuntu PC** : Monitored client 
+
+-----------
+
+## 📋 Prerequisites
+
+### Zabbix Server (Ubuntu 24.04)
+- Root or sudo access
+- Internet connection
+- Minimum 2 GB RAM (4 GB recommended)
+- 20 GB disk space
+
+### Clients
+- Windows 10 with administrator access
+- Ubuntu with sudo access
+- Network connectivity to the Zabbix server
+
+---------
+
+## 🚀 Quick installation
+
+### 1️⃣ Installing the Zabbix server
+
+# Update the system
+sudo apt update && sudo apt upgrade -y
+
+# Install dependencies
+sudo apt install -y apache2 mysql-server php php-mysql php-gd php-bcmath php-net-socket php-gettext
+
+# Add the Zabbix repository
+wget https://repo.zabbix.com/zabbix/7.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_7.0-1+ubuntu24.04_all.deb
+sudo dpkg -i zabbix-release_7.0-1+ubuntu24.04_all.deb
+sudo apt update
+
+# Install Zabbix Server, Frontend and Agent
+sudo apt install -y zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-agent
+
+# Create the database
+sudo mysql -e ‘CREATE DATABASE zabbix CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;’
+sudo mysql -e ‘CREATE USER “zabbix”@'localhost' IDENTIFIED BY “password”;’
+sudo mysql -e ‘GRANT ALL PRIVILEGES ON zabbix.* TO “zabbix”@'localhost';’
+sudo mysql -e ‘SET GLOBAL log_bin_trust_function_creators = 1;’
+
+# Import the initial schema
+zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -uzabbix -p zabbix
+
+# Configure the Zabbix Server
+sudo nano /etc/zabbix/zabbix_server.conf
+# Change: DBPassword=password
+
+# Start the services
+sudo systemctl restart zabbix-server zabbix-agent apache2
+sudo systemctl enable zabbix-server zabbix-agent apache2
+
+
+
+
