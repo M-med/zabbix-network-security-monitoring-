@@ -134,13 +134,13 @@ sudo systemctl enable zabbix-agent
 
 ### 📸 Screenshots
 
-# Zabbix Dashboard
+## Zabbix Dashboard
 https://screenshots/dashboard.png
 
-# Detected issues
+## Detected issues
 https://screenshots/problems.png
 
-# Host configuration
+## Host configuration
 https://screenshots/host_config.png
 
 ---------
@@ -162,6 +162,34 @@ https://screenshots/host_config.png
 - **install_zabbix_agent_ubuntu.sh** : Installation of the agent on Ubuntu
 - **install_zabbix_agent_windows.ps1** : Installation of the agent on Windows
 - **backup_zabbix_db.sh** : Backing up the Zabbix database
+
+----------
+
+# 📁 Zabbix Templates
+
+This folder contains Zabbix XML templates for monitoring security on Windows, Linux, and network devices.
+
+## 📄 Available Templates
+
+- `template_windows_security.xml`: Windows Security Monitoring (services, events, disk, CPU, memory) 
+- `template_linux_security.xml` : Linux Security Monitoring (services, logs, disk, CPU, memory) 
+- `template_network_security.xml` : Network Security Monitoring (SNMP, interfaces, traffic, uptime) 
+
+## 🔧 How to Import Templates
+
+### Method 1: Zabbix Web Interface
+
+1. Log in to the Zabbix frontend.
+2. Navigate to **Configuration → Templates**.
+3. Click the **Import** button (top right).
+4. Select the XML file to import.
+5. Click **Import**.
+
+### Method 2: Zabbix CLI (optional)
+
+```bash
+# Using zabbix-cli (if installed)
+zabbix-cli --import-template templates/template_windows_security.xml
 
 ----------
 
