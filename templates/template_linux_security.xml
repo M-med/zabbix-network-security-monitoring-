@@ -308,4 +308,55 @@
         </graph>
         <!-- Memory Utilization Graph -->
         <graph>
-            <name
+            <name>Memory utilization</name>
+            <width>900</width>
+            <height>200</height>
+            <type>NORMAL</type>
+            <show_legend>1</show_legend>
+            <show_work_period>1</show_work_period>
+            <show_triggers>1</show_triggers>
+            <graphtype>NORMAL</graphtype>
+            <show_3d>0</show_3d>
+            <percent_left>0</percent_left>
+            <percent_right>0</percent_right>
+            <ymin_type_1>FIXED</ymin_type_1>
+            <ymax_type_1>FIXED</ymax_type_1>
+            <ymin_item_1>0</ymin_item_1>
+            <ymax_item_1>0</ymax_item_1>
+            <graph_items>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>LINE</drawtype>
+                    <color>F63100</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>AVG</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template_Linux_Security</host>
+                        <key>vm.memory.utilization</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+    </graphs>
+    <value_maps>
+        <!-- Zabbix Agent Availability Value Map -->
+        <value_map>
+            <name>Zabbix agent availability</name>
+            <mappings>
+                <mapping>
+                    <value>0</value>
+                    <newvalue>Unavailable</newvalue>
+                </mapping>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>Available</newvalue>
+                </mapping>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>Unknown</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+    </value_maps>
+</zabbix_export>
