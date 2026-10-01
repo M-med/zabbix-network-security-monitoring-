@@ -89,6 +89,82 @@ sudo nano /etc/zabbix/zabbix_server.conf
 sudo systemctl restart zabbix-server zabbix-agent apache2
 sudo systemctl enable zabbix-server zabbix-agent apache2
 
+---------
 
+### 2️⃣ Accessing the web interface
 
+# Open a web browser and go to:
+http://yourIPaddress/zabbix
 
+# Default credentials:
+- Username: Admin
+- Password: zabbix
+
+---------
+
+### 3️⃣ Installing the Zabbix Agent on Windows
+
+1 - Download the Zabbix Agent 7.4.7 installer
+2 - Run the installation
+3 - Configure:
+    - Host name: DESKTOP-XXXXX
+    - Zabbix server IP/DNS: 192.168.1.14
+    - Agent listen port: 10050
+    - Server or Proxy for active checks: 127.0.0.1
+4 - Complete the installation and start the service
+
+----------
+
+### 4️⃣ Installing the Zabbix agent on Ubuntu
+sudo apt install -y zabbix-agent
+sudo systemctl start zabbix-agent
+sudo systemctl enable zabbix-agent
+
+---------
+
+### 📊 Monitoring and alerts
+
+# Configured dashboards
+- Global View: Overview of all hosts
+- Problems: List of active issues by severity
+- Host Availability: Host availability
+- CPU Utilisation: CPU utilisation per host
+
+----------
+
+### 📸 Screenshots
+
+# Zabbix Dashboard
+https://screenshots/dashboard.png
+
+# Detected issues
+https://screenshots/problems.png
+
+# Host configuration
+https://screenshots/host_config.png
+
+---------
+
+### 📚 Documentation
+# The full documentation is available in the folder docs/ :
+01 - Introduction
+02 - Architecture
+03 - Installation
+04 - Configuration
+05 - Supervision
+06 - Dépannage
+
+---------
+
+### 🔧 Available scripts
+
+- **install_zabbix_server.sh** : Automated installation of the Zabbix server
+- **install_zabbix_agent_ubuntu.sh** : Installation of the agent on Ubuntu
+- **install_zabbix_agent_windows.ps1** : Installation of the agent on Windows
+- **backup_zabbix_db.sh** : Backing up the Zabbix database
+
+----------
+
+### 📄 License
+
+This project is licensed under the MIT licence. See the LICENSE file for further details.
