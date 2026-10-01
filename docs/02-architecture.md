@@ -11,7 +11,7 @@
 ### 2. Zabbix Frontend
 - **Role**: Web-based user interface
 - **Technology**: Apache + PHP
-- **URL**: `http://192.168.1.14/zabbix`
+- **URL**: `http://yourIPaddress/zabbix`
 - **Features**: Dashboards, configuration, reporting
 
 ### 3. Zabbix Database
