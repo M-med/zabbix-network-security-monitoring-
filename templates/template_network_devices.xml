@@ -1,1 +1,360 @@
-
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>7.0</version>
+    <date>2026-10-01T00:00:00Z</date>
+    <groups>
+        <group>
+            <name>Templates/Security</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>Template_Network_Security</template>
+            <name>Network Security Monitoring</name>
+            <description>Template for monitoring network devices (routers, switches, firewalls) with SNMP.</description>
+            <groups>
+                <group>
+                    <name>Templates/Security</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>Security</name>
+                </application>
+                <application>
+                    <name>Network</name>
+                </application>
+            </applications>
+            <items>
+                <!-- SNMP Availability -->
+                <item>
+                    <name>SNMP availability</name>
+                    <type>ZABBIX_INTERNAL</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>zabbix[host,snmp,available]</key>
+                    <delay>1m</delay>
+                    <history>7d</history>
+                    <trends>365d</trends>
+                    <status>ENABLED</status>
+                    <value_type>UNSIGNED</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>NONE</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>SNMP availability status</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Security</name>
+                        </application>
+                    </applications>
+                    <valuemap>
+                        <name>SNMP availability</name>
+                    </valuemap>
+                    <logtimefmt/>
+                </item>
+                <!-- Interface Status -->
+                <item>
+                    <name>Interface GigabitEthernet0/1 status</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <snmp_oid>1.3.6.1.2.1.2.2.1.8.1</snmp_oid>
+                    <key>ifOperStatus[1]</key>
+                    <delay>1m</delay>
+                    <history>7d</history>
+                    <trends>365d</trends>
+                    <status>ENABLED</status>
+                    <value_type>UNSIGNED</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>NONE</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Operational status of interface GigabitEthernet0/1</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Network</name>
+                        </application>
+                    </applications>
+                    <valuemap>
+                        <name>Interface status</name>
+                    </valuemap>
+                    <logtimefmt/>
+                </item>
+                <!-- Incoming Traffic -->
+                <item>
+                    <name>Incoming traffic on GigabitEthernet0/1</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <snmp_oid>1.3.6.1.2.1.31.1.1.1.6.1</snmp_oid>
+                    <key>ifHCInOctets[1]</key>
+                    <delay>1m</delay>
+                    <history>7d</history>
+                    <trends>365d</trends>
+                    <status>ENABLED</status>
+                    <value_type>UNSIGNED</value_type>
+                    <allowed_hosts/>
+                    <units>bps</units>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>NONE</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Incoming traffic on interface GigabitEthernet0/1</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Network</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing>
+                        <step>
+                            <type>CHANGE_PER_SECOND</type>
+                            <params/>
+                        </step>
+                        <step>
+                            <type>MULTIPLIER</type>
+                            <params>8</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <!-- Outgoing Traffic -->
+                <item>
+                    <name>Outgoing traffic on GigabitEthernet0/1</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <snmp_oid>1.3.6.1.2.1.31.1.1.1.10.1</snmp_oid>
+                    <key>ifHCOutOctets[1]</key>
+                    <delay>1m</delay>
+                    <history>7d</history>
+                    <trends>365d</trends>
+                    <status>ENABLED</status>
+                    <value_type>UNSIGNED</value_type>
+                    <allowed_hosts/>
+                    <units>bps</units>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>NONE</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Outgoing traffic on interface GigabitEthernet0/1</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Network</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing>
+                        <step>
+                            <type>CHANGE_PER_SECOND</type>
+                            <params/>
+                        </step>
+                        <step>
+                            <type>MULTIPLIER</type>
+                            <params>8</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <!-- Device Uptime -->
+                <item>
+                    <name>Device uptime</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <snmp_oid>1.3.6.1.2.1.1.3.0</snmp_oid>
+                    <key>sysUpTime</key>
+                    <delay>5m</delay>
+                    <history>7d</history>
+                    <trends>365d</trends>
+                    <status>ENABLED</status>
+                    <value_type>UNSIGNED</value_type>
+                    <allowed_hosts/>
+                    <units>uptime</units>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>NONE</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>System uptime of the network device</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Network</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+            </items>
+            <discovery_rules/>
+            <httptests/>
+            <macros>
+                <macro>
+                    <macro>{$SNMP_COMMUNITY}</macro>
+                    <value>public</value>
+                </macro>
+            </macros>
+            <templates/>
+            <screens/>
+        </template>
+    </templates>
+    <triggers>
+        <!-- SNMP Unavailable Trigger -->
+        <trigger>
+            <expression>last(/Template_Network_Security/zabbix[host,snmp,available])=0</expression>
+            <name>SNMP is not available on {HOST.NAME}</name>
+            <priority>AVERAGE</priority>
+            <description>SNMP is not available on the network device</description>
+            <status>ENABLED</status>
+        </trigger>
+        <!-- Interface Down Trigger -->
+        <trigger>
+            <expression>last(/Template_Network_Security/ifOperStatus[1])=2</expression>
+            <name>Interface GigabitEthernet0/1 is down on {HOST.NAME}</name>
+            <priority>AVERAGE</priority>
+            <description>Interface GigabitEthernet0/1 is down</description>
+            <status>ENABLED</status>
+        </trigger>
+        <!-- High Traffic Trigger -->
+        <trigger>
+            <expression>avg(/Template_Network_Security/ifHCInOctets[1],5m)&gt;100000000</expression>
+            <name>High incoming traffic on {HOST.NAME}</name>
+            <priority>WARNING</priority>
+            <description>Incoming traffic is above 100 Mbps for 5 minutes</description>
+            <status>ENABLED</status>
+        </trigger>
+        <!-- Device Reboot Trigger -->
+        <trigger>
+            <expression>last(/Template_Network_Security/sysUpTime)&lt;300</expression>
+            <name>Device {HOST.NAME} has rebooted</name>
+            <priority>WARNING</priority>
+            <description>Device uptime is less than 5 minutes, indicating a reboot</description>
+            <status>ENABLED</status>
+        </trigger>
+    </triggers>
+    <graphs>
+        <!-- Traffic Graph -->
+        <graph>
+            <name>Network traffic on GigabitEthernet0/1</name>
+            <width>900</width>
+            <height>200</height>
+            <type>NORMAL</type>
+            <show_legend>1</show_legend>
+            <show_work_period>1</show_work_period>
+            <show_triggers>1</show_triggers>
+            <graphtype>NORMAL</graphtype>
+            <show_3d>0</show_3d>
+            <percent_left>0</percent_left>
+            <percent_right>0</percent_right>
+            <ymin_type_1>FIXED</ymin_type_1>
+            <ymax_type_1>FIXED</ymax_type_1>
+            <ymin_item_1>0</ymin_item_1>
+            <ymax_item_1>0</ymax_item_1>
+            <graph_items>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>LINE</drawtype>
+                    <color>1A7C11</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>AVG</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template_Network_Security</host>
+                        <key>ifHCInOctets[1]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <drawtype>LINE</drawtype>
+                    <color>F63100</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>AVG</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template_Network_Security</host>
+                        <key>ifHCOutOctets[1]</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+    </graphs>
+    <value_maps>
+        <!-- SNMP Availability Value Map -->
+        <value_map>
+            <name>SNMP availability</name>
+            <mappings>
+                <mapping>
+                    <value>0</value>
+                    <newvalue>Unavailable</newvalue>
+                </mapping>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>Available</newvalue>
+                </mapping>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>Unknown</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+        <!-- Interface Status Value Map -->
+        <value_map>
+            <name>Interface status</name>
+            <mappings>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>Up</newvalue>
+                </mapping>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>Down</newvalue>
+                </mapping>
+                <mapping>
+                    <value>3</value>
+                    <newvalue>Testing</newvalue>
+                </mapping>
+                <mapping>
+                    <value>4</value>
+                    <newvalue>Unknown</newvalue>
+                </mapping>
+                <mapping>
+                    <value>5</value>
+                    <newvalue>Dormant</newvalue>
+                </mapping>
+                <mapping>
+                    <value>6</value>
+                    <newvalue>Not present</newvalue>
+                </mapping>
+                <mapping>
+                    <value>7</value>
+                    <newvalue>Lower layer down</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+    </value_maps>
+</zabbix_export>
