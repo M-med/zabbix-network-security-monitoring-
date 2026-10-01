@@ -1,1 +1,311 @@
-
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>7.0</version>
+    <date>2026-10-01T00:00:00Z</date>
+    <groups>
+        <group>
+            <name>Templates/Security</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>Template_Linux_Security</template>
+            <name>Linux Security Monitoring</name>
+            <description>Template for monitoring Linux security events, services, and system integrity.</description>
+            <groups>
+                <group>
+                    <name>Templates/Security</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>Security</name>
+                </application>
+                <application>
+                    <name>System</name>
+                </application>
+                <application>
+                    <name>Network</name>
+                </application>
+            </applications>
+            <items>
+                <!-- CPU Load -->
+                <item>
+                    <name>CPU load</name>
+                    <type>ZABBIX_PASSIVE</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>system.cpu.load[percpu,avg1]</key>
+                    <delay>1m</delay>
+                    <history>7d</history>
+                    <trends>365d</trends>
+                    <status>ENABLED</status>
+                    <value_type>FLOAT</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>NONE</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>CPU load average (1 min) per CPU</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>System</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <!-- Memory Utilization -->
+                <item>
+                    <name>Memory utilization</name>
+                    <type>ZABBIX_PASSIVE</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>vm.memory.utilization</key>
+                    <delay>1m</delay>
+                    <history>7d</history>
+                    <trends>365d</trends>
+                    <status>ENABLED</status>
+                    <value_type>FLOAT</value_type>
+                    <allowed_hosts/>
+                    <units>%</units>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>NONE</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Memory utilization percentage</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>System</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <!-- Disk Space / -->
+                <item>
+                    <name>Disk space / (percentage used)</name>
+                    <type>ZABBIX_PASSIVE</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>vfs.fs.size[/,pused]</key>
+                    <delay>5m</delay>
+                    <history>7d</history>
+                    <trends>365d</trends>
+                    <status>ENABLED</status>
+                    <value_type>FLOAT</value_type>
+                    <allowed_hosts/>
+                    <units>%</units>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>NONE</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Used disk space percentage on / partition</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>System</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <!-- SSH Service Status -->
+                <item>
+                    <name>SSH service status</name>
+                    <type>ZABBIX_PASSIVE</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>proc.num[sshd]</key>
+                    <delay>1m</delay>
+                    <history>7d</history>
+                    <trends>365d</trends>
+                    <status>ENABLED</status>
+                    <value_type>UNSIGNED</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>NONE</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Number of SSH daemon processes</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Security</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <!-- Zabbix Agent Availability -->
+                <item>
+                    <name>Zabbix agent availability</name>
+                    <type>ZABBIX_INTERNAL</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>zabbix[host,agent,available]</key>
+                    <delay>1m</delay>
+                    <history>7d</history>
+                    <trends>365d</trends>
+                    <status>ENABLED</status>
+                    <value_type>UNSIGNED</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>NONE</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Zabbix agent availability status</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Security</name>
+                        </application>
+                    </applications>
+                    <valuemap>
+                        <name>Zabbix agent availability</name>
+                    </valuemap>
+                    <logtimefmt/>
+                </item>
+                <!-- Auth Log Monitoring -->
+                <item>
+                    <name>Authentication log</name>
+                    <type>ZABBIX_PASSIVE</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>log[/var/log/auth.log]</key>
+                    <delay>1m</delay>
+                    <history>7d</history>
+                    <trends>365d</trends>
+                    <status>ENABLED</status>
+                    <value_type>LOG</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>NONE</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>Authentication log monitoring</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Security</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+            </items>
+            <discovery_rules/>
+            <httptests/>
+            <macros/>
+            <templates/>
+            <screens/>
+        </template>
+    </templates>
+    <triggers>
+        <!-- CPU Load Trigger -->
+        <trigger>
+            <expression>avg(/Template_Linux_Security/system.cpu.load[percpu,avg1],5m)&gt;2</expression>
+            <name>High CPU load on {HOST.NAME}</name>
+            <priority>WARNING</priority>
+            <description>CPU load is above 2 per CPU for 5 minutes</description>
+            <status>ENABLED</status>
+        </trigger>
+        <!-- Memory Utilization Trigger -->
+        <trigger>
+            <expression>avg(/Template_Linux_Security/vm.memory.utilization,5m)&gt;90</expression>
+            <name>High memory utilization on {HOST.NAME}</name>
+            <priority>WARNING</priority>
+            <description>Memory utilization is above 90% for 5 minutes</description>
+            <status>ENABLED</status>
+        </trigger>
+        <!-- Disk Space Trigger -->
+        <trigger>
+            <expression>last(/Template_Linux_Security/vfs.fs.size[/,pused])&gt;90</expression>
+            <name>Disk space critically low on {HOST.NAME} (/)</name>
+            <priority>AVERAGE</priority>
+            <description>Disk space on / is above 90% usage</description>
+            <status>ENABLED</status>
+        </trigger>
+        <!-- SSH Service Down Trigger -->
+        <trigger>
+            <expression>last(/Template_Linux_Security/proc.num[sshd])=0</expression>
+            <name>SSH service is not running on {HOST.NAME}</name>
+            <priority>HIGH</priority>
+            <description>SSH daemon is not running</description>
+            <status>ENABLED</status>
+        </trigger>
+        <!-- Zabbix Agent Unavailable Trigger -->
+        <trigger>
+            <expression>last(/Template_Linux_Security/zabbix[host,agent,available])=0</expression>
+            <name>Zabbix agent is not available on {HOST.NAME}</name>
+            <priority>AVERAGE</priority>
+            <description>Zabbix agent is not available</description>
+            <status>ENABLED</status>
+        </trigger>
+    </triggers>
+    <graphs>
+        <!-- CPU Load Graph -->
+        <graph>
+            <name>CPU load</name>
+            <width>900</width>
+            <height>200</height>
+            <type>NORMAL</type>
+            <show_legend>1</show_legend>
+            <show_work_period>1</show_work_period>
+            <show_triggers>1</show_triggers>
+            <graphtype>NORMAL</graphtype>
+            <show_3d>0</show_3d>
+            <percent_left>0</percent_left>
+            <percent_right>0</percent_right>
+            <ymin_type_1>FIXED</ymin_type_1>
+            <ymax_type_1>FIXED</ymax_type_1>
+            <ymin_item_1>0</ymin_item_1>
+            <ymax_item_1>0</ymax_item_1>
+            <graph_items>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>LINE</drawtype>
+                    <color>1A7C11</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>AVG</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>Template_Linux_Security</host>
+                        <key>system.cpu.load[percpu,avg1]</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <!-- Memory Utilization Graph -->
+        <graph>
+            <name
