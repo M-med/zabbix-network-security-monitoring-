@@ -187,11 +187,11 @@ This folder contains Zabbix XML templates for monitoring security on Windows, Li
 
 ### Method 2: Zabbix CLI (optional)
 
-# Using zabbix-cli (if installed)
+## Using zabbix-cli (if installed)
 zabbix-cli --import-template templates/template_windows_security.xml
 
 ------------
 
-### 📄 License
+# 📄 License
 
 This project is licensed under the MIT licence. See the LICENSE file for further details.
