@@ -4,7 +4,7 @@
 ### 1. Zabbix Server
 - **Role**: Central monitoring engine
 - **Host**: Ubuntu Server 24.04 LTS
-- **IP**: 192.168.1.14
+- **IP**: your config IP address 
 - **Services**: Zabbix Server, Apache, MySQL, PHP
 - **Ports**: 10051 (Zabbix Server), 80 (HTTP), 443 (HTTPS)
 
