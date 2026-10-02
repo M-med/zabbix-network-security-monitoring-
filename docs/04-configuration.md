@@ -48,36 +48,37 @@ Hostname=Windows10
 ListenPort=10050
 ListenIP=0.0.0.0
 Timeout=3
+
 ## Apply Changes
 
-# Linux
+### Linux
 sudo systemctl restart zabbix-agent
 
-# Windows
+### Windows
 Restart-Service "Zabbix Agent"
 
 ## 🌐 Web Interface Configuration
-# Access
+### Access
 http://YourIPaddress/zabbix
 
-# Default Credentials
+### Default Credentials
 - Username: Admin
 - Password: zabbix
 
-# Change Password
+### Change Password
 1- Click on User Settings (top right)
 2- Click Change Password
 3- Enter current and new password
 4- Click Update
 
-# Configure Timezone
+### Configure Timezone
 1- Navigate to Administration → General
 2- Select Locale / Timezone
 3- Set timezone: YourlocalTimezone
 4- Click Update
 
 ## 📧 Email Notifications
-# 1. Configure Email Media Type
+### 1. Configure Email Media Type
 1- Navigate to Administration → Media types
 2- Click Email
 3- Configure SMTP settings:
@@ -89,14 +90,14 @@ http://YourIPaddress/zabbix
     - SMTP security: STARTTLS
 4- Click Update
 
-# 2. Configure User Email
+### 2. Configure User Email
 1- Navigate to Administration → Users
 2- Select user (e.g., Admin)
 3- Click Media tab
 4- Add email address
 5- Click Add then Update
 
-# 3. Configure Action
+### 3. Configure Action
 1- Navigate to Configuration → Actions
 2- Click Create action
 3- Configure:
@@ -106,7 +107,7 @@ http://YourIPaddress/zabbix
 4- Click Add
 
 ## 🖥️ Add Monitored Hosts
-# 1. Add Windows Host
+### 1. Add Windows Host
 1- Navigate to Configuration → Hosts
 2- Click Create host
 3- Configure:
@@ -117,7 +118,7 @@ http://YourIPaddress/zabbix
 5- Link template: Windows Security Monitoring
 6- Click Add
 
-# 2. Add Linux Host
+### 2. Add Linux Host
 1- Navigate to Configuration → Hosts
 2- Click Create host
 3- Configure:
@@ -129,24 +130,24 @@ http://YourIPaddress/zabbix
 6- Click Add
 
 ## 📊 Import Templates
-# 1. Download Templates
+### 1. Download Templates
 1- Templates are available in the templates/ folder:
 2- template_windows_security.xml
 3- template_linux_security.xml
 4- template_network_security.xml
 
-# 2. Import via Web Interface
+### 2. Import via Web Interface
 1- Navigate to Configuration → Templates
 2- Click Import (top right)
 3- Select XML file
 4- Click Import
 
-# 3. Verify Import
+### 3. Verify Import
 - Navigate to Configuration → Templates and check that templates are listed.
 
 ## 🚨 Configure Triggers
 
-# Default Triggers
+### Default Triggers
 - Templates include pre-configured triggers:
 
 Trigger	Severity	Condition
@@ -158,7 +159,7 @@ Service not running	High	Service state ≠ running
 Multiple failed logins	High	> 5 failed attempts in 5 min
 Agent unavailable	Average	Agent not reachable
 
-# Custom Triggers
+### Custom Triggers
 1- Navigate to Configuration → Hosts
 2- Click Triggers for a host
 3- Click Create trigger
@@ -170,13 +171,13 @@ Agent unavailable	Average	Agent not reachable
 
 ## 📈 Create Dashboards
 
-# 1. Create Dashboard
+### 1. Create Dashboard
 1- Navigate to Monitoring → Dashboards
 2- Click Create dashboard
 3- Name: Security Overview
 4- Click Apply
 
-# 2. Add Widgets
+### 2. Add Widgets
 Widget	Purpose
 Problems	Display active problems
 Host availability	Show host status
@@ -189,25 +190,25 @@ Network traffic	Graph network traffic
 - Click Save to store the dashboard.
 
 ## 🔐 Security Configuration
-# 1. Enable HTTPS
+### 1. Enable HTTPS
 sudo a2enmod ssl
 sudo a2ensite default-ssl
 sudo systemctl reload apache2
 
-# 2. Configure TLS for Agents
-# On agent
+### 2. Configure TLS for Agents
+#### On agent
 TLSConnect=cert
 TLSAccept=cert
 TLSCAFile=/etc/zabbix/certs/ca.crt
 TLSCertFile=/etc/zabbix/certs/agent.crt
 TLSKeyFile=/etc/zabbix/certs/agent.key
 
-# 3. Configure RBAC
+### 3. Configure RBAC
 1- Navigate to Administration → User roles
 2- Create roles with limited permissions
 3- Assign roles to users
 
-📌 Best Practices
+## 📌 Best Practices
 Area	Best Practice
 Passwords	Use strong, unique passwords
 Updates	Keep Zabbix and OS updated
