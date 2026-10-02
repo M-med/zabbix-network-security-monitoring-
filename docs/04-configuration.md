@@ -66,81 +66,81 @@ http://YourIPaddress/zabbix
 - Password: zabbix
 
 ### Change Password
-1- Click on User Settings (top right)
-2- Click Change Password
-3- Enter current and new password
-4- Click Update
+- Click on User Settings (top right)
+- Click Change Password
+- Enter current and new password
+- Click Update
 
 ### Configure Timezone
-1- Navigate to Administration → General
-2- Select Locale / Timezone
-3- Set timezone: YourlocalTimezone
-4- Click Update
+- Navigate to Administration → General
+- Select Locale / Timezone
+- Set timezone: YourlocalTimezone
+- Click Update
 
 ## 📧 Email Notifications
 ### 1. Configure Email Media Type
-1- Navigate to Administration → Media types
-2- Click Email
-3- Configure SMTP settings:
+- Navigate to Administration → Media types
+- Click Email
+ Configure SMTP settings:
     - SMTP server: smtp.gmail.com
     - SMTP helo: gmail.com
     - SMTP email: your-email@gmail.com
     - SMTP password: your-app-password
     - SMTP port: 587
     - SMTP security: STARTTLS
-4- Click Update
+- Click Update
 
 ### 2. Configure User Email
-1- Navigate to Administration → Users
-2- Select user (e.g., Admin)
-3- Click Media tab
-4- Add email address
-5- Click Add then Update
+- Navigate to Administration → Users
+- Select user (e.g., Admin)
+- Click Media tab
+- Add email address
+- Click Add then Update
 
 ### 3. Configure Action
-1- Navigate to Configuration → Actions
-2- Click Create action
-3- Configure:
+- Navigate to Configuration → Actions
+- Click Create action
+- Configure:
     - Name: Send email on alert
     - Conditions: Trigger severity ≥ Warning
     - Operations: Send email to user
-4- Click Add
+- Click Add
 
 ## 🖥️ Add Monitored Hosts
 ### 1. Add Windows Host
-1- Navigate to Configuration → Hosts
-2- Click Create host
-3- Configure:
+- Navigate to Configuration → Hosts
+- Click Create host
+- Configure:
     - Host name: Windows10
     - Groups: Windows servers
     - Agent interface: 192.168.1.6:10050
-4- Click Templates tab
-5- Link template: Windows Security Monitoring
-6- Click Add
+- Click Templates tab
+- Link template: Windows Security Monitoring
+- Click Add
 
 ### 2. Add Linux Host
-1- Navigate to Configuration → Hosts
-2- Click Create host
-3- Configure:
+- Navigate to Configuration → Hosts
+- Click Create host
+- Configure:
     - Host name: Ubuntu-PC
     - Groups: Linux servers
     - Agent interface: 192.168.1.50:10050
-4- Click Templates tab
-5- Link template: Linux Security Monitoring
-6- Click Add
+- Click Templates tab
+- Link template: Linux Security Monitoring
+- Click Add
 
 ## 📊 Import Templates
 ### 1. Download Templates
-1- Templates are available in the templates/ folder:
-2- template_windows_security.xml
-3- template_linux_security.xml
-4- template_network_security.xml
+- Templates are available in the templates/ folder:
+- template_windows_security.xml
+- template_linux_security.xml
+- template_network_security.xml
 
 ### 2. Import via Web Interface
-1- Navigate to Configuration → Templates
-2- Click Import (top right)
-3- Select XML file
-4- Click Import
+- Navigate to Configuration → Templates
+- Click Import (top right)
+- Select XML file
+- Click Import
 
 ### 3. Verify Import
 - Navigate to Configuration → Templates and check that templates are listed.
