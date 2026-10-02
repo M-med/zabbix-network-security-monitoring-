@@ -1,8 +1,4 @@
----
 
-## 📄 `docs/04-configuration.md`
-
-```markdown
 # 04 - Configuration
 
 This guide covers the configuration of Zabbix server, agents, and integrations.
