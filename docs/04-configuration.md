@@ -209,12 +209,4 @@ TLSKeyFile=/etc/zabbix/certs/agent.key
 2- Create roles with limited permissions
 3- Assign roles to users
 
-## 📌 Best Practices
-Area	Best Practice
-Passwords	Use strong, unique passwords
-Updates	Keep Zabbix and OS updated
-Backups	Regular database backups
-Monitoring	Monitor Zabbix itself
-Documentation	Document all changes
-Testing	Test in staging before production
 
