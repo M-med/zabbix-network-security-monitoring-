@@ -161,22 +161,22 @@ http://YourIPaddress/zabbix
 | Agent unavailable | Average | Agent not reachable |
 
 ### Custom Triggers
-1- Navigate to Configuration → Hosts
-2- Click Triggers for a host
-3- Click Create trigger
-4- Configure:
+- Navigate to Configuration → Hosts
+- Click Triggers for a host
+- Click Create trigger
+- Configure:
     - Name: Custom trigger name
     - Severity: Warning
     - Expression: last(/host/key)>threshold
-5- Click Add
+- Click Add
 
 ## 📈 Create Dashboards
 
 ### 1. Create Dashboard
-1- Navigate to Monitoring → Dashboards
-2- Click Create dashboard
-3- Name: Security Overview
-4- Click Apply
+- Navigate to Monitoring → Dashboards
+- Click Create dashboard
+- Name: Security Overview
+- Click Apply
 
 ### 2. Add Widgets
 Widget	Purpose
