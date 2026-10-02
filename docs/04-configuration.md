@@ -150,14 +150,15 @@ http://YourIPaddress/zabbix
 ### Default Triggers
 - Templates include pre-configured triggers:
 
-| Trigger	| Severity |	Condition |
-| High CPU utilization |	Warning |	CPU > 90% for 5 min |
-| High memory utilization |	Warning |	Memory > 90% for 5 min |
-| Disk space critically low |	Average	| Disk > 90% |
-| Network interface down |	Average	| Interface status = down |
-| Service not running |	High |	Service state ≠ running |
-| Multiple failed logins |	High |	> 5 failed attempts in 5 min |
-| Agent unavailable |	Average	| Agent not reachable |
+| Trigger | Severity | Condition |
+|-----------|-------|-------------|
+| High CPU utilization | Warning | CPU > 90% for 5 min |
+| High memory utilization |	Warning | Memory > 90% for 5 min |
+| Disk space critically low | Average | Disk > 90% |
+| Network interface down | Average | Interface status = down |
+| Service not running |	High | Service state ≠ running |
+| Multiple failed logins | High | > 5 failed attempts in 5 min |
+| Agent unavailable | Average | Agent not reachable |
 
 ### Custom Triggers
 1- Navigate to Configuration → Hosts
